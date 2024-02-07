@@ -1,0 +1,563 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Vite App</title>
+</head>
+
+<body id="root">
+  <ix-application-header>TODO - there is no documentation for ix-application-header</ix-application-header>
+  <ix-basic-navigation hide-header application-name="My Application name">
+    <ix-menu>
+      <ix-menu-item home icon="home">Home</ix-menu-item>
+      <ix-menu-item icon="globe">Normal Tab</ix-menu-item>
+      <ix-menu-category label="Top level Category" icon="rocket">
+        <ix-menu-item icon="globe">Nested Tab</ix-menu-item>
+        <ix-menu-item icon="globe">Nested Tab</ix-menu-item>
+      </ix-menu-category>
+      <ix-menu-item tab-icon="apps" slot="bottom">Sitting at the Bottom</ix-menu-item>
+      <ix-menu-settings>
+        <ix-menu-settings-item label="Example Setting 1">
+          <div style="background: blue">Settings 2 content</div>
+        </ix-menu-settings-item>
+        <ix-menu-settings-item label="Example Setting 2">
+          <div style="background: red">Settings 2 content</div>
+        </ix-menu-settings-item>
+      </ix-menu-settings>
+      <ix-menu-about>
+        <ix-menu-about-item label="Tab 1">Content 1</ix-menu-about-item>
+        <ix-menu-about-item label="Tab 2">Content 2</ix-menu-about-item>
+      </ix-menu-about>
+    </ix-menu>
+    <main class="flex flex-col gap-12 p-4">
+      <div>
+        <ix-workflow-steps>
+          <ix-workflow-step status="done">Step 1</ix-workflow-step>
+          <ix-workflow-step status="success">Step 2</ix-workflow-step>
+          <ix-workflow-step status="open">Step 3</ix-workflow-step>
+          <ix-workflow-step status="warning">Step 4</ix-workflow-step>
+          <ix-workflow-step status="error">Step 5</ix-workflow-step>
+          <ix-workflow-step disabled>Step 6</ix-workflow-step>
+        </ix-workflow-steps>
+      </div>
+      <div class="flex gap-8 p-8">
+        <ix-button class="this-class-is-used-to-select">Hover me</ix-button>
+        <ix-tooltip for=".this-class-is-used-to-select">Simple selector</ix-tooltip>
+
+        <ix-button my-custom-special-selector="any-value">Also hover me</ix-button>
+        <ix-tooltip for="[my-custom-special-selector='any-value']">
+          Custom selector
+        </ix-tooltip>
+      </div>
+      <div class="flex flex-col gap-2">
+        <ix-toggle></ix-toggle>
+        <ix-toggle text-off="custom off label" text-on="custom on label"></ix-toggle>
+        <ix-toggle disabled></ix-toggle>
+        <ix-toggle indeterminate text-indeterminate="custom indeterminate label"></ix-toggle>
+      </div>
+      <div>
+        <ix-toggle-button outline>Normal</ix-toggle-button>
+        <ix-toggle-button outline pressed>Pressed</ix-toggle-button>
+        <ix-toggle-button outline disabled>Disabled</ix-toggle-button>
+        <ix-toggle-button outline disabled loading> Loading </ix-toggle-button>
+      </div>
+      <div>
+        <ix-split-button label="Action text" split-icon="chevron-down-small">
+          <ix-dropdown-item label="Item 1"></ix-dropdown-item>
+          <ix-dropdown-item label="Item 2"></ix-dropdown-item>
+        </ix-split-button>
+        <ix-split-button icon="document" split-icon="chevron-down-small">
+          <ix-dropdown-item icon="cut"></ix-dropdown-item>
+          <ix-dropdown-item icon="bulb"></ix-dropdown-item>
+        </ix-split-button>
+      </div>
+      <div>
+        <form class="needs-validation m-2 flex flex-col gap-2">
+          <input value="" placeholder="Enter text here" type="text" />
+          <input value="this one is disabled" placeholder="Enter text here" type="text" disabled />
+          <input value="this one is readonly" placeholder="Enter text here" type="text" readonly />
+          <ix-input-group>
+            <input type="text" value="this one has an icon" />
+            <span slot="input-end"><ix-icon name="about" size="4"></ix-icon></span>
+          </ix-input-group>
+          <ix-input-group>
+            <span slot="input-start">Text:</span>
+            <input placeholder="Enter text" type="text" />
+          </ix-input-group>
+
+          <ix-input-group>
+            <span slot="input-start">Number:</span>
+            <input type="number" />
+            <span slot="input-end">.00</span>
+            <span slot="input-end">$</span>
+          </ix-input-group>
+
+          <ix-input-group>
+            <span slot="input-start">Password:</span>
+            <input placeholder="Enter password" type="password" />
+          </ix-input-group>
+
+          <ix-input-group>
+            <span slot="input-start">Email:</span>
+            <input placeholder="example@domain.com" type="email" />
+          </ix-input-group>
+
+          <ix-input-group>
+            <span slot="input-start">Telephone:</span>
+            <input placeholder="111-111-111" type="tel" />
+          </ix-input-group>
+          <div class="example-list">
+            <input checked id="checkbox_1_1" name="group_1" type="radio" />
+            <label for="checkbox_1_1"> Checked </label>
+
+            <input id="checkbox_1_2" name="group_1" type="radio" />
+            <label for="checkbox_1_2"> Normal </label>
+
+            <input disabled id="checkbox_1_3" name="group_1" type="radio" />
+            <label for="checkbox_1_3"> Disabled </label>
+          </div>
+          <ix-select mode="multiple">
+            <ix-select-item label="Item 1" value="1"></ix-select-item>
+            <ix-select-item label="Item 2" value="2"></ix-select-item>
+            <ix-select-item label="Item 3" value="3"></ix-select-item>
+            <ix-select-item label="Item 4" value="4"></ix-select-item>
+          </ix-select>
+          <ix-select value="1">
+            <ix-select-item label="Item 1" value="1"></ix-select-item>
+            <ix-select-item label="Item 2" value="2"></ix-select-item>
+            <ix-select-item label="Item 3" value="3"></ix-select-item>
+            <ix-select-item label="Item 4" value="4"></ix-select-item>
+          </ix-select>
+        </form>
+      </div>
+      <div class="min-h-48 w-48 bg-red-500">
+        HIER SOLLTE EIGENTLICH EIN ix-spinner ZU SEHEN SEIN
+        <ix-spinner></ix-spinner>
+      </div>
+      </div>
+      <div>
+        <ix-pill variant="custom" color="white" background="purple">
+          Label
+        </ix-pill>
+
+        <ix-pill>Label</ix-pill>
+        <ix-pill outline>Label</ix-pill>
+        <ix-pill style="width: 8rem">Label</ix-pill>
+
+        <ix-pill icon="star">Label</ix-pill>
+        <ix-pill icon="star" style="width: 8rem"> Label </ix-pill>
+        <ix-pill outline alignLeft icon="star" style="width: 8rem"> Label </ix-pill>
+
+        <ix-pill variant="alarm">Label</ix-pill>
+        <ix-pill variant="alarm" outline> Label </ix-pill>
+        <ix-pill variant="alarm" style="width: 8rem"> Label </ix-pill>
+
+        <ix-pill variant="alarm" icon="star"> Label </ix-pill>
+        <ix-pill variant="alarm" icon="star" style="width: 8rem"> Label </ix-pill>
+        <ix-pill variant="alarm" outline alignLeft icon="star" style="width: 8rem">
+          Label
+        </ix-pill>
+      </div>
+      <div class="flex flex-col gap-4">
+        <ix-pagination count="10"></ix-pagination>
+        <div>
+          <ix-pagination advanced count="10"></ix-pagination>
+        </div>
+      </div>
+      <div>
+        <ix-message-bar>Message text</ix-message-bar>
+        <ix-message-bar type="warning">Message text</ix-message-bar>
+        <ix-message-bar type="danger">
+          <div class="d-flex align-items-center justify-content-between">
+            Message text <ix-button>Action</ix-button>
+          </div>
+        </ix-message-bar>
+      </div>
+
+      <div>
+        <ix-group header="Header text" sub-header="Subheader text" suppress-header-selection>
+          <ix-group-item text="Example text 1"></ix-group-item>
+          <ix-group-item text="Example text 2"></ix-group-item>
+          <ix-group-item text="Example text 3"></ix-group-item>
+        </ix-group>
+      </div>
+      <div>
+        <ix-flip-tile>
+          <div slot="header">HEADER</div>
+          <div slot="footer">
+            <div>FOOTER</div>
+          </div>
+          <ix-flip-tile-content>
+            <div class="w-full h-32 flex items-center justify-center bg-cyan-400 text-cyan-800">TILE-1</div>
+          </ix-flip-tile-content>
+          <ix-flip-tile-content>
+            <div class="w-full h-32 flex items-center justify-center bg-yellow-400 text-yellow-800">TILE-2</div>
+          </ix-flip-tile-content>
+          <ix-flip-tile-content>
+            <div class="w-full h-32 flex items-center justify-center bg-lime-400 text-lime-800">TILE-3</div>
+          </ix-flip-tile-content>
+        </ix-flip-tile>
+      </div>
+      <div>
+        <ix-expanding-search placeholder="Search..."></ix-expanding-search>
+      </div>
+      <div>
+        <ix-event-list compact>
+          <ix-event-list-item color="color-primary">Text 1</ix-event-list-item>
+          <ix-event-list-item color="color-primary">Text 2</ix-event-list-item>
+          <ix-event-list-item color="color-primary">Text 3</ix-event-list-item>
+          <ix-event-list-item color="color-primary">Text 4</ix-event-list-item>
+        </ix-event-list>
+      </div>
+      <div>
+        <ix-empty-state id="ix-empty-state-1" header="No elements available" sub-header="Create an element first"
+          icon="add" action="Create element"></ix-empty-state>
+
+        <script>
+          (async function () {
+            await window.customElements.whenDefined('ix-empty-state');
+            const emptyState = document.querySelector('#ix-empty-state-1');
+
+            emptyState.addEventListener('actionClick', (event) =>
+              console.log(event)
+            );
+          })();
+        </script>
+      </div>
+
+      <div class="flex gap-4">
+        <div>
+          <ix-button id="triggerId-1">Open ix-dropdow</ix-button>
+          <ix-dropdown trigger="triggerId-1">
+            <ix-dropdown-header label="Category"></ix-dropdown-header>
+            <ix-dropdown-item label="Item 2"></ix-dropdown-item>
+            <ix-dropdown-item label="Item 3"></ix-dropdown-item>
+            <ix-dropdown-item label="Item 4"></ix-dropdown-item>
+            <ix-divider></ix-divider>
+            <ix-dropdown-item label="Item 5"></ix-dropdown-item>
+          </ix-dropdown>
+        </div>
+        <div>
+          <ix-button id="iconTriggerId-1">Open ix-dropdow</ix-button>
+          <ix-dropdown trigger="iconTriggerId-1">
+            <ix-dropdown-item icon="star" label="Item 1"></ix-dropdown-item>
+            <ix-dropdown-item icon="document" label="Item 2"></ix-dropdown-item>
+            <ix-dropdown-item icon="bulb" label="Item 3"></ix-dropdown-item>
+          </ix-dropdown>
+        </div>
+        <div>
+          <ix-button id="iconTriggerId-2">Open ix-dropdow</ix-button>
+
+          <ix-dropdown trigger="iconTriggerId-2">
+            <ix-dropdown-quick-actions>
+              <ix-icon-button icon="cut" ghost></ix-icon-button>
+              <ix-icon-button icon="bulb" ghost></ix-icon-button>
+              <ix-icon-button icon="trashcan" ghost></ix-icon-button>
+            </ix-dropdown-quick-actions>
+
+            <ix-divider></ix-divider>
+
+            <ix-dropdown-item icon="star" label="Item 1"></ix-dropdown-item>
+            <ix-dropdown-item icon="document" label="Item 2"></ix-dropdown-item>
+            <ix-dropdown-item icon="bulb" label="Item 3"></ix-dropdown-item>
+          </ix-dropdown>
+        </div>
+        <div>
+          <ix-button id="iconTriggerId-3">Open ix-dropdow</ix-button>
+          <ix-dropdown trigger="iconTriggerId-3">
+            <ix-dropdown-item id="submenuTrigger" label="Submenu"></ix-dropdown-item>
+            <ix-dropdown-item icon="star" label="Item 1"></ix-dropdown-item>
+            <ix-dropdown-item icon="document" label="Item 2"></ix-dropdown-item>
+            <ix-dropdown-item icon="bulb">BULB LABEL AS TEXTNODE</ix-dropdown-item>
+          </ix-dropdown>
+          <ix-dropdown trigger="submenuTrigger" placement="right-start">
+            <ix-dropdown-item icon="star" label="Item 1"></ix-dropdown-item>
+            <ix-dropdown-item icon="document" label="Item 2"></ix-dropdown-item>
+          </ix-dropdown>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <ix-dropdown-button label="" variant="primary" icon="checkboxes">
+          <ix-dropdown-item label="Item 1" value="1"></ix-dropdown-item>
+          <ix-dropdown-item label="Item 2" value="2"></ix-dropdown-item>
+        </ix-dropdown-button>
+        <ix-dropdown-button label="" variant="primary" outline icon="checkboxes">
+          <ix-dropdown-item label="Item 1" value="1"></ix-dropdown-item>
+          <ix-dropdown-item label="Item 2" value="2"></ix-dropdown-item>
+        </ix-dropdown-button>
+        <ix-dropdown-button label="" variant="primary" ghost icon="checkboxes">
+          <ix-dropdown-item label="Item 1" value="1"></ix-dropdown-item>
+          <ix-dropdown-item label="Item 2" value="2"></ix-dropdown-item>
+        </ix-dropdown-button>
+        <ix-dropdown-button label="" variant="primary" disabled icon="checkboxes">
+        </ix-dropdown-button>
+      </div>
+
+      <div class="flex gap-4">
+        <ix-dropdown-button label="Dropdown" variant="primary" icon="checkboxes">
+          <ix-dropdown-item label="Item 1" value="1"></ix-dropdown-item>
+          <ix-dropdown-item label="Item 2" value="2"></ix-dropdown-item>
+        </ix-dropdown-button>
+        <ix-dropdown-button label="Dropdown" variant="primary" outline icon="checkboxes">
+          <ix-dropdown-item label="Item 1" value="1"></ix-dropdown-item>
+          <ix-dropdown-item label="Item 2" value="2"></ix-dropdown-item>
+        </ix-dropdown-button>
+        <ix-dropdown-button label="Dropdown" variant="primary" ghost icon="checkboxes">
+          <ix-dropdown-item label="Item 1" value="1"></ix-dropdown-item>
+          <ix-dropdown-item label="Item 2" value="2"></ix-dropdown-item>
+        </ix-dropdown-button>
+        <ix-dropdown-button label="Dropdown" variant="primary" disabled icon="checkboxes">
+        </ix-dropdown-button>
+      </div>
+
+      <!--
+         TODO: 
+          - how to make full-screen without css in custom element?
+          - is transparent!?
+      -->
+      <ix-drawer id="drawer-1" class="h-screen" full-height close-on-click-outside>
+        <div class="w-full h-full bg-cyan-200">
+          <span>Some content of drawer</span>
+        </div>
+      </ix-drawer>
+
+      <ix-button id="drawer-1-toggle">Toggle drawer</ix-button>
+
+      <script>
+        (async function () {
+          await window.customElements.whenDefined('ix-drawer');
+
+          const drawer = document.querySelector('#drawer-1');
+          const button = document.querySelector('#drawer-1-toggle');
+          button.addEventListener('click', () => {
+            drawer.show = !drawer.show;
+          });
+        })();
+      </script>
+
+      <div>
+        <ix-content-header has-back-button="true" header-title="Content title" header-subtitle="Subtitle">
+          <ix-button ghost="true">Button1</ix-button>
+          <ix-button ghost="true">Button2</ix-button>
+          <ix-button ghost="true">Button3</ix-button>
+        </ix-content-header>
+      </div>
+      <!-- TODO warum wird das nicht angezeigt? -->
+      <pre>
+        NOTE: back-button-click nur per event!
+        document.addEventListener('backButtonClick', function(e) {
+          console.log('backButtonClick:', e);
+        });
+      </pre>
+
+      <ix-date-picker></ix-date-picker>
+
+      <ix-datetime-picker></ix-datetime-picker>
+
+
+      <div class="flex flex-col gap-1">
+        <ix-chip closable outline> Primary </ix-chip>
+        <ix-chip icon="print">Primary with icon</ix-chip>
+        <ix-chip icon="print" style="width: 10rem" closable>Primary</ix-chip>
+
+        <ix-chip variant="critical" closable outline> Alarm </ix-chip>
+        <ix-chip variant="alarm" icon="print"> Alarm with icon </ix-chip>
+        <ix-chip variant="alarm" icon="print" style="width: 10rem" closable>
+          Alarm
+        </ix-chip>
+        <ix-chip variant="warning" icon="print" style="width: 10rem" closable>
+          Alarm
+        </ix-chip>
+        <ix-chip background="purple" color="green" variant="custom" icon="print" style="width: 10rem" closable>
+          Custom
+        </ix-chip>
+      </div>
+      <div class="flex flex-col gap-1">
+        <div>
+          <input type="checkbox" id="checkbox_01" />
+          <label for="checkbox_01">Simple checkbox</label>
+        </div>
+        <div>
+          <input type="checkbox" id="checkbox_02" disabled />
+          <label for="checkbox_02">Disabled checkbox</label>
+        </div>
+        <div>
+          <input type="checkbox" id="checkbox_03" />
+          <label for="checkbox_03">Initially indeterminate checkbox</label>
+        </div>
+        <script>
+          (function () {
+            const checkbox = document.querySelector('#checkbox_03');
+            checkbox.indeterminate = true;
+          })();
+        </script>
+      </div>
+
+      <ix-avatar initials="SF"></ix-avatar>
+
+      <div>
+        <ix-button class="m-1" variant="primary">Button</ix-button>
+        <ix-button class="m-1" variant="primary" disabled>Button</ix-button>
+      </div>
+
+      <div class="btn-group">
+        <ix-button outline>Button 1</ix-button>
+        <ix-button>Button 2</ix-button>
+        <ix-button outline>Button 3</ix-button>
+        <ix-button outline>Button 4</ix-button>
+      </div>
+
+      <div>
+        <div class="m-1">
+          <ix-icon-button class="m-1" icon="info" variant="primary"></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" variant="secondary"></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" outline></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" ghost></ix-icon-button>
+        </div>
+
+        <div class="m-1">
+          <ix-icon-button class="m-1" icon="info" oval variant="primary"></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" oval variant="secondary"></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" oval outline></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" oval ghost></ix-icon-button>
+        </div>
+
+        <div class="m-1">
+          <ix-icon-button class="m-1" icon="info" size="12"></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" size="16"></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" size="24"></ix-icon-button>
+          <ix-icon-button class="m-1" icon="info" size="32"></ix-icon-button>
+        </div>
+      </div>
+
+      <div>
+        <ix-blind label="Example" icon="info">
+          <ix-icon-button id="context-menu" slot="header-actions" ghost icon="context-menu"
+            color="color-primary"></ix-icon-button>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+          eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+          voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+          clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+          amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+          diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+          sit amet.
+        </ix-blind>
+      </div>
+
+      <!-- note: connected via the id of the icon in the blind! -->
+      <ix-dropdown trigger="context-menu">
+        <ix-dropdown-item label="Rename..." icon="rename"></ix-dropdown-item>
+        <ix-dropdown-item label="Delete" icon="trashcan"></ix-dropdown-item>
+      </ix-dropdown>
+
+      <ix-breadcrumb>
+        <ix-breadcrumb-item label="Item 1"></ix-breadcrumb-item>
+        <ix-breadcrumb-item label="Item 2"></ix-breadcrumb-item>
+        <ix-breadcrumb-item label="Item 3"></ix-breadcrumb-item>
+      </ix-breadcrumb>
+
+      <ix-card-list label="Stack Layout" show-all-count="12" list-style="stack">
+        <ix-push-card icon="rocket" notification="3" heading="Heading content" subheading="Subheading"
+          variant="notification"></ix-push-card>
+        <ix-push-card icon="bulb" notification="1" heading="Heading content" subheading="Subheading"
+          variant="warning"></ix-push-card>
+        <ix-push-card icon="rocket" notification="3" heading="Heading content" subheading="Subheading"
+          variant="success"></ix-push-card>
+      </ix-card-list>
+
+      <pre>
+        TODO: 
+        https://ix.siemens.io/docs/controls/category-filter
+        https://ix.siemens.io/docs/controls/charts/
+      </pre>
+
+
+    </main>
+
+  </ix-basic-navigation>
+
+  <script type="module" src="./main.js"></script>
+  <script>
+    function getXPathForElement(element) {
+      const getPathSegment = (el) => {
+        // Node is the document or document type, which doesn't have an XPath
+        if (el.nodeType === 9 || el.nodeType === 10) {
+          return null;
+        }
+        let ix = 1; // Position index of the element among its siblings
+        const siblings = el.parentNode ? el.parentNode.childNodes : [];
+
+        // Loop through siblings to find the position of the current element
+        for (let i = 0; i < siblings.length; i++) {
+          const sibling = siblings[i];
+          if (sibling === el) {
+            // Generate XPath segment for this element
+            return '/' + el.tagName.toLowerCase() + '[' + ix + ']';
+          } else if (sibling.nodeType === 1 && sibling.tagName === el.tagName) {
+            ix++;
+          }
+        }
+      };
+
+      // Array to hold each piece of the XPath
+      const segments = [];
+      for (; element && element.nodeType === 1; element = element.parentNode) {
+        const seg = getPathSegment(element);
+        if (!seg) break; // Document or DOCTYPE reached
+        segments.unshift(seg); // Add segment to the beginning of the array
+      }
+      return segments.length ? '/' + segments.join('') : null;
+    }
+    // Select the node that will be observed for mutations
+    const targetNode = document.getElementById('root');
+
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: true, subtree: true };
+
+    // Callback function to execute when mutations are observed
+    const callback = function (mutationsList, observer) {
+      for (let mutation of mutationsList) {
+        // TODO geht nur wenn nicht childList und removedNodes
+        // let xpath = getXPathForElement(mutation.target);
+
+
+        // getXPathForElement
+        if (mutation.type === 'childList') {
+          let node_list_without_textnodes = Array.from(mutation.addedNodes).filter(node => {
+            node.nodeType != 3
+          });
+
+          if (node_list_without_textnodes.length != 0 || mutation.removedNodes.length != 0) {
+            console.log(mutation.type, mutation);
+          }
+        }
+        else if (mutation.type === 'attributes') {
+          // console.log(`${xpath}/@${mutation.attributeName}`);
+
+          let name = mutation.attributeName;
+          let new_attr_value = mutation.target.getAttribute(name)
+          // console.log(`${mutation.target.tagName}/@${name}: "${mutation.oldValue}" -> "${new_attr_value}"`);
+        }
+        else {
+          console.log("OTHER MUTATION", mutation)
+        }
+      }
+    };
+
+    // Create an instance of MutationObserver with the callback
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+
+    // Later, you can stop observing
+    // observer.disconnect();
+  </script>
+</body>
+
+</html>
